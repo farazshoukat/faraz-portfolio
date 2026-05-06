@@ -46,7 +46,7 @@ Some of the featured projects in this portfolio:
 To run this project locally:
 
 # Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/farazshoukat/faraz-portfolio.git
 
 # Navigate into the project folder
 cd your-repo-name
