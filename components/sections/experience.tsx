@@ -2,44 +2,35 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Briefcase, Code, Users, Award } from "lucide-react"
+import { Briefcase, Code, Users } from "lucide-react"
 
 const experiences = [
   {
-    period: "2025 - Present",
-    title: "Final Year Project Lead",
-    company: "Academic Project",
+    period: "Nov 2025 - Present",
+    title: "N8N Automation Engineer",
+    company: "Lean Automation",
     description:
-      "Leading the development of a Plant Disease Detection system using Machine Learning. Implementing CNN models with TensorFlow achieving 94% accuracy.",
-    achievements: ["94% model accuracy", "38 disease classes", "Mobile integration"],
-    icon: Code,
+      "Building intelligent automation pipelines and integrations for clients. Designing and deploying N8N workflows that streamline business processes end-to-end.",
+    achievements: ["~70% reduction in manual tasks", "15+ integrations built", "End-to-end automation"],
+    icon: Briefcase,
   },
   {
     period: "Aug 2025 - Dec 2025",
     title: "AI Engineer Intern",
     company: "Developers Hub",
     description:
-      "Building AI/ML solutions and mobile applications for clients. Delivering end-to-end solutions from requirements gathering to deployment.",
-    achievements: ["5+ projects Made", "Cross-platform apps", "Company satisfaction"],
-    icon: Briefcase,
+      "Built AI/ML solutions and applications for clients. Delivered end-to-end solutions from requirements gathering to deployment.",
+    achievements: ["5+ projects delivered", "Cross-platform apps", "Client satisfaction"],
+    icon: Code,
   },
   {
-    period: "Jan 2025 - March 2025",
-    title: "AI integration and web development intern",
+    period: "Jan 2025 - Mar 2025",
+    title: "AI Integration & Web Development Intern",
     company: "Delta Technologies",
     description:
-      "Assisted in integrating AI components into applications by implementing machine learning models, optimizing data pipelines, and supporting AI-driven features. Collaborated on model testing, deployment, and performance evaluation to enhance system intelligence",
-    achievements: ["30+ Integrations", "10+ websites made", "Positive reviews"],
+      "Integrated AI components into client applications by implementing machine learning models, optimizing data pipelines, and supporting AI-driven features. Collaborated on model testing, deployment, and performance evaluation.",
+    achievements: ["30+ integrations", "10+ websites built", "Positive reviews"],
     icon: Users,
-  },
-  {
-    period: "2024 - Present",
-    title: "Peer Mentor & Teaching Assistant",
-    company: "Academic",
-    description:
-      "Mentoring junior students in programming, ML concepts, and networking fundamentals. Conducting study sessions and practical demonstrations.",
-    achievements: ["20+ students mentored", "Workshop facilitation", "Academic support"],
-    icon: Award,
   },
 ]
 
@@ -60,7 +51,7 @@ export function ExperienceSection() {
             <span className="text-primary text-sm font-medium tracking-wider uppercase">Experience</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Professional Journey</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A timeline of my academic and freelance experience building intelligent solutions.
+              A timeline of my professional experience building AI solutions and automation pipelines.
             </p>
           </div>
 

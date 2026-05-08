@@ -5,8 +5,8 @@ import { Github, Linkedin, Mail, Heart } from "lucide-react"
 
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com/farazshoukat" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/farazshoukat" },
-  { name: "Email", icon: Mail, href: "mailto:faraz@example.com" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/faraz-shoukat-539161289/" },
+  { name: "Email", icon: Mail, href: "mailto:farazshoukat1@gmail.com" },
 ]
 
 const navLinks = [

@@ -7,37 +7,43 @@ import { MapPin, Calendar, Briefcase, GraduationCap } from "lucide-react"
 
 const techStack = [
   "Python",
+  "Next.js",
+  "TypeScript",
+  "FastAPI",
+  "N8N",
+  "LangChain",
+  "RAG",
   "Machine Learning",
   "TensorFlow",
-  "Flutter",
-  "Firebase",
-  "Dart",
-  "Cisco",
   "Git",
   "SQL",
-  "NumPy",
-  "Pandas",
-  "Scikit-learn",
+  "Docker",
 ]
 
 const timeline = [
   {
-    year: "2022 - Present",
-    title: "Final Year Student & Freelancer",
-    description: "Building AI/ML solutions and Flutter applications",
-    icon: GraduationCap,
-  },
-  {
-    year: "2023 - 2024",
-    title: "Final Year Project",
-    description: "Plant Disease Detection using Machine Learning",
+    year: "Nov 2025 - Present",
+    title: "N8N Automation Engineer",
+    description: "Building automation pipelines at Lean Automation — ~70% reduction in manual tasks, 15+ integrations",
     icon: Briefcase,
   },
   {
-    year: "2022 - 2025",
-    title: "Academic Excellence",
-    description: "Strong foundation in CS, Networks & AI",
+    year: "Aug 2025 - Dec 2025",
+    title: "AI Engineer Intern",
+    description: "Delivered 5+ AI/ML solutions for clients at Developers Hub",
+    icon: Briefcase,
+  },
+  {
+    year: "Jan 2025 - Mar 2025",
+    title: "AI & Web Dev Intern",
+    description: "30+ integrations and 10+ websites built at Delta Technologies",
     icon: Calendar,
+  },
+  {
+    year: "2022 - 2025",
+    title: "BSc Computer Science",
+    description: "Final Year Project: FarmGuardian — CNN trained on 87,000+ images, 94% accuracy",
+    icon: GraduationCap,
   },
 ]
 
@@ -59,7 +65,7 @@ export function AboutSection() {
             <span className="text-primary text-sm font-medium tracking-wider uppercase">About Me</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Building the Future with AI</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Passionate about leveraging artificial intelligence and machine learning to solve real-world problems.
+              Passionate about leveraging artificial intelligence and automation to solve real-world problems.
             </p>
           </div>
 
@@ -73,25 +79,25 @@ export function AboutSection() {
               <div className="bg-card rounded-2xl p-8 border border-border shadow-sm">
                 <div className="flex items-center gap-2 text-muted-foreground mb-6">
                   <MapPin className="h-4 w-4" />
-                  <span>Pakistan</span>
+                  <span>Abbottabad, Pakistan</span>
                 </div>
 
                 <p className="text-foreground leading-relaxed mb-6">
                   {"I'm "}
-                  <span className="text-primary font-semibold">Faraz Shoukat</span>, an AI Engineer and Machine Learning
-                  enthusiast with 3+ years of combined academic and freelance experience. I specialize in building
-                  intelligent systems that make a difference.
+                  <span className="text-primary font-semibold">Faraz Shoukat</span>, an AI Engineer and Automation
+                  Engineer with 2+ years building AI/ML projects and professional experience at Lean Automation and two
+                  AI internships.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  My expertise spans across Machine Learning algorithms (Naive Bayes, KNN, A*, clustering), mobile
-                  development with Flutter & Firebase, and Computer Networks (Cisco, VLANs, OSPF, BGP). I love turning
-                  complex problems into elegant solutions.
+                  My expertise spans Machine Learning algorithms (NLP, CNN, LLM, clustering, model tuning), RAG
+                  pipelines, and full-stack development with Next.js. Currently at Lean Automation, I build N8N
+                  automation workflows that have reduced manual tasks by ~70% across 15+ integrations.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Currently working on my final year project - a Plant Disease Detection system using Machine Learning -
-                  while actively taking on freelance projects and mentoring peers.
+                  My FYP — FarmGuardian — is an AI-powered digital farming assistant using a CNN trained on 87,000+
+                  images with 94% accuracy and offline inference for low-connectivity environments.
                 </p>
               </div>
 

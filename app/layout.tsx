@@ -9,30 +9,42 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Faraz Shoukat | AI & ML Engineer",
+  title: "Faraz Shoukat | AI & Automation Engineer",
   description:
-    "AI Engineer, Machine Learning Engineer, Flutter Developer, and Computer Networks Specialist with 3+ years of experience building intelligent applications and solutions.",
-  keywords: ["AI Engineer", "Machine Learning", "Flutter Developer", "Computer Networks", "Python", "Faraz Shoukat"],
+    "AI Engineer and N8N Automation Engineer with professional experience at Lean Automation. Building AI-powered web applications, LLM pipelines, and automation workflows using Next.js, Python, and N8N.",
+  keywords: [
+    "AI Engineer",
+    "Machine Learning",
+    "N8N Automation",
+    "Next.js",
+    "TypeScript",
+    "LLM",
+    "RAG",
+    "Python",
+    "FastAPI",
+    "Faraz Shoukat",
+  ],
   authors: [{ name: "Faraz Shoukat" }],
   creator: "Faraz Shoukat",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://farazshoukat.dev",
-    title: "Faraz Shoukat | AI & ML Engineer",
-    description: "AI Engineer, Machine Learning Engineer, Flutter Developer, and Computer Networks Specialist",
+    url: "https://portfolio-website-faraz.vercel.app",
+    title: "Faraz Shoukat | AI & Automation Engineer",
+    description:
+      "AI Engineer and N8N Automation Engineer building AI-powered apps, LLM pipelines, and automation workflows.",
     siteName: "Faraz Shoukat Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faraz Shoukat | AI & ML Engineer",
-    description: "AI Engineer, Machine Learning Engineer, Flutter Developer, and Computer Networks Specialist",
+    title: "Faraz Shoukat | AI & Automation Engineer",
+    description:
+      "AI Engineer and N8N Automation Engineer building AI-powered apps, LLM pipelines, and automation workflows.",
   },
   robots: {
     index: true,
     follow: true,
   },
-    generator: 'v0.app'
 }
 
 export const viewport: Viewport = {
@@ -54,8 +66,8 @@ export default function RootLayout({
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
+          <Analytics />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )

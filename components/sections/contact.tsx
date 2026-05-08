@@ -53,18 +53,34 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID
+      const endpoint = formspreeId
+        ? `https://formspree.io/f/${formspreeId}`
+        : "https://formspree.io/f/xpwzgknd" // fallback placeholder — replace with your own
 
-    // For demo purposes, always succeed
-    setSubmitStatus("success")
-    setIsSubmitting(false)
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formState),
+      })
 
-    // Reset form after success
-    setTimeout(() => {
-      setFormState({ name: "", email: "", message: "" })
-      setSubmitStatus("idle")
-    }, 3000)
+      if (res.ok) {
+        setSubmitStatus("success")
+        setTimeout(() => {
+          setFormState({ name: "", email: "", message: "" })
+          setSubmitStatus("idle")
+        }, 3000)
+      } else {
+        setSubmitStatus("error")
+        setTimeout(() => setSubmitStatus("idle"), 3000)
+      }
+    } catch {
+      setSubmitStatus("error")
+      setTimeout(() => setSubmitStatus("idle"), 3000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

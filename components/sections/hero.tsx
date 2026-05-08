@@ -6,7 +6,7 @@ import { ArrowDown, Download, MessageSquare, FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-const roles = ["AI Engineer", "ML Engineer", "Full Stack Developer","N8N Automation"]
+const roles = ["AI Engineer", "ML Engineer", "Full Stack Developer", "Automation Engineer"]
 
 export function HeroSection() {
   const [currentRole, setCurrentRole] = useState(0)
@@ -97,8 +97,8 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            I build intelligent applications and scalable solutions using Machine Learning, Flutter, and modern
-            networking technologies. Based in Pakistan.
+            I build AI-powered web applications and automation pipelines using Next.js, LLMs, and N8N. Based in
+            Pakistan.
           </motion.p>
 
           <motion.div
