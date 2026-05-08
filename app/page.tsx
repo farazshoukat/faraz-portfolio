@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { HeroSection } from "@/components/sections/hero"
@@ -11,6 +14,11 @@ import { ContactSection } from "@/components/sections/contact"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
+  // Always start at the top when the page loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [])
+
   return (
     <>
       <ScrollProgress />
