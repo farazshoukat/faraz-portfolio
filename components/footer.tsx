@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
+import { motion } from "framer-motion"
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/farazshoukat" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/faraz-shoukat-539161289/" },
-  { name: "Email", icon: Mail, href: "mailto:farazshoukat1@gmail.com" },
+  { name: "GitHub", icon: Github, href: "https://github.com/farazshoukat", color: "#00e5ff" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/faraz-shoukat-539161289/", color: "#a855f7" },
+  { name: "Email", icon: Mail, href: "mailto:farazshoukat1@gmail.com", color: "#6366f1" },
 ]
 
 const navLinks = [
@@ -19,55 +20,102 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="container mx-auto px-4 md:px-6 py-12">
+    <footer className="relative overflow-hidden"
+      style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      {/* Top gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.4), rgba(168,85,247,0.4), transparent)" }} />
+
+      {/* Subtle background */}
+      <div className="absolute inset-0"
+        style={{ background: "rgba(0,229,255,0.01)" }} />
+
+      <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
         <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo & Description */}
+          {/* Logo */}
           <div>
-            <Link href="/" className="text-xl font-bold text-foreground">
-              <span className="text-primary">F</span>araz
+            <Link href="/" className="inline-flex items-center gap-2 group">
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold font-display transition-all"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0,229,255,0.12), rgba(168,85,247,0.12))",
+                  border: "1px solid rgba(0,229,255,0.25)",
+                  color: "#00e5ff",
+                  boxShadow: "0 0 16px rgba(0,229,255,0.1)",
+                }}
+              >
+                FS
+              </div>
+              <span className="text-lg font-bold font-display" style={{ color: "rgba(255,255,255,0.8)" }}>
+                Faraz<span style={{ color: "#00e5ff" }}>.</span>
+              </span>
             </Link>
-            <p className="text-sm text-muted-foreground mt-2 max-w-xs">
+            <p className="text-sm mt-3 max-w-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
               AI Engineer & ML Enthusiast building intelligent solutions for the future.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {/* Nav links */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm transition-colors duration-200"
+                style={{ color: "rgba(255,255,255,0.4)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(0,229,255,0.85)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
               >
                 {link.name}
               </Link>
             ))}
           </div>
 
-          {/* Social Links */}
+          {/* Social icons */}
           <div className="flex justify-center md:justify-end gap-3">
             {socialLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
                 aria-label={link.name}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  color: "rgba(255,255,255,0.5)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `${link.color}12`
+                  e.currentTarget.style.borderColor = `${link.color}35`
+                  e.currentTarget.style.boxShadow = `0 0 16px ${link.color}20`
+                  e.currentTarget.style.color = link.color
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.04)"
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"
+                  e.currentTarget.style.boxShadow = "none"
+                  e.currentTarget.style.color = "rgba(255,255,255,0.5)"
+                }}
               >
                 <link.icon className="h-4 w-4" />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        {/* Bottom bar */}
+        <div
+          className="mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.25)" }}
+        >
           <p>© {new Date().getFullYear()} Faraz Shoukat. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built with <Heart className="h-3.5 w-3.5 text-primary fill-primary" /> using Next.js, Tailwind CSS & Framer
-            Motion
+          <p>
+            Built with{" "}
+            <span className="gradient-text font-semibold">Next.js · Tailwind CSS · Framer Motion</span>
           </p>
         </div>
       </div>
