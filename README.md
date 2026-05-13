@@ -1,7 +1,7 @@
 🚀 Personal Portfolio Website
 🌐 Live Demo
 
-👉 https://portfolio-website-faraz.vercel.app/
+👉 https://farazshoukat.vercel.app/
 
 📌 About The Project
 
