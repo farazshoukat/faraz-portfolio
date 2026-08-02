@@ -2,32 +2,70 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Brain, Code, Smartphone, Network, Wrench } from "lucide-react"
+import { Brain, Code, Layout, Server, Database, Smartphone, Cpu, Terminal } from "lucide-react"
 
 const skillCategories = [
   {
-    title: "Machine Learning & AI",
-    icon: Brain,
+    title: "Languages",
+    icon: Code,
     color: "#00e5ff",
     skills: [
-      { name: "Naive Bayes", level: 90 },
-      { name: "K-Nearest Neighbors", level: 85 },
-      { name: "A* Search Algorithm", level: 88 },
-      { name: "Clustering", level: 82 },
-      { name: "Model Tuning", level: 80 },
-      { name: "TensorFlow", level: 75 },
+      { name: "JavaScript (ES6+)", level: 92 },
+      { name: "TypeScript", level: 90 },
+      { name: "Python", level: 94 },
+      { name: "SQL", level: 85 },
+      { name: "Dart", level: 88 },
+      { name: "Java", level: 75 },
     ],
   },
   {
-    title: "Programming",
-    icon: Code,
+    title: "Frontend Development",
+    icon: Layout,
     color: "#a855f7",
     skills: [
-      { name: "Python", level: 92 },
-      { name: "Dart", level: 85 },
-      { name: "SQL", level: 80 },
-      { name: "JavaScript", level: 70 },
-      { name: "C/C++", level: 75 },
+      { name: "React.js", level: 92 },
+      { name: "Next.js 14", level: 90 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "Redux", level: 82 },
+      { name: "HTML5 / CSS3", level: 95 },
+    ],
+  },
+  {
+    title: "Backend & APIs",
+    icon: Server,
+    color: "#6366f1",
+    skills: [
+      { name: "Node.js", level: 88 },
+      { name: "Express.js", level: 86 },
+      { name: "FastAPI", level: 90 },
+      { name: "REST APIs", level: 92 },
+      { name: "WebSockets", level: 80 },
+    ],
+  },
+  {
+    title: "AI & Machine Learning",
+    icon: Brain,
+    color: "#00e5ff",
+    skills: [
+      { name: "LLMs & RAG", level: 90 },
+      { name: "TensorFlow & TFLite", level: 85 },
+      { name: "Scikit-learn", level: 88 },
+      { name: "NLP & CNNs", level: 86 },
+      { name: "Pandas & NumPy", level: 90 },
+      { name: "Matplotlib", level: 82 },
+    ],
+  },
+  {
+    title: "Databases",
+    icon: Database,
+    color: "#a855f7",
+    skills: [
+      { name: "PostgreSQL", level: 88 },
+      { name: "Supabase", level: 90 },
+      { name: "MongoDB", level: 85 },
+      { name: "Firebase Firestore", level: 88 },
+      { name: "MySQL", level: 82 },
+      { name: "Redis", level: 78 },
     ],
   },
   {
@@ -35,35 +73,33 @@ const skillCategories = [
     icon: Smartphone,
     color: "#6366f1",
     skills: [
-      { name: "Flutter", level: 88 },
-      { name: "Firebase", level: 85 },
-      { name: "REST APIs", level: 82 },
-      { name: "UI/UX Design", level: 78 },
-      { name: "State Management", level: 80 },
+      { name: "Flutter (Cross-Platform)", level: 90 },
+      { name: "Firebase", level: 88 },
+      { name: "Dart", level: 88 },
+      { name: "Provider State Mgmt", level: 85 },
     ],
   },
   {
-    title: "Networking",
-    icon: Network,
+    title: "Automation & AI Agents",
+    icon: Cpu,
     color: "#00e5ff",
     skills: [
-      { name: "Cisco IOS", level: 85 },
-      { name: "VLANs", level: 88 },
-      { name: "OSPF/BGP", level: 82 },
-      { name: "STP/VTP", level: 80 },
-      { name: "Packet Tracer", level: 90 },
+      { name: "N8N Automation", level: 95 },
+      { name: "AI Agents", level: 90 },
+      { name: "AutoGPT", level: 82 },
+      { name: "Data Pipelines", level: 85 },
     ],
   },
   {
-    title: "Tools & Platforms",
-    icon: Wrench,
+    title: "DevOps & Tools",
+    icon: Terminal,
     color: "#a855f7",
     skills: [
-      { name: "Git/GitHub", level: 88 },
-      { name: "VS Code", level: 92 },
-      { name: "Jupyter Notebook", level: 85 },
-      { name: "Linux", level: 75 },
-      { name: "Docker", level: 70 },
+      { name: "Docker", level: 80 },
+      { name: "Git / GitHub", level: 92 },
+      { name: "GitHub Actions", level: 82 },
+      { name: "Linux", level: 85 },
+      { name: "VS Code & Jupyter", level: 95 },
     ],
   },
 ]
@@ -124,18 +160,18 @@ export function SkillsSection() {
               <span className="gradient-text">Expertise</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive toolkit spanning AI/ML, mobile development, and enterprise networking.
+              A production-ready technical stack across Full Stack Development, AI/ML engineering, and enterprise N8N automation.
             </p>
           </div>
 
           {/* Cards grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.08 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="rounded-2xl p-6 relative overflow-hidden group transition-all"
                 style={{
@@ -178,11 +214,11 @@ export function SkillsSection() {
                       key={skill.name}
                       initial={{ opacity: 0, x: -10 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.3, delay: categoryIndex * 0.1 + skillIndex * 0.06 }}
+                      transition={{ duration: 0.3, delay: categoryIndex * 0.08 + skillIndex * 0.05 }}
                       className="flex items-center gap-3"
                     >
                       <CircularProgress level={skill.level} color={category.color} isInView={isInView} />
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{skill.name}</span>
+                      <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>

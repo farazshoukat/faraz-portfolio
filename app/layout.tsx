@@ -14,19 +14,21 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Faraz Shoukat | AI & Automation Engineer",
+  title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
   description:
-    "AI Engineer and N8N Automation Engineer with professional experience at Lean Automation. Building AI-powered web applications, LLM pipelines, and automation workflows using Next.js, Python, and N8N.",
+    "Full Stack Developer & AI/Automation Engineer with experience at Lean Automation & Developers Hub. Building production web applications, LLM/RAG pipelines, and N8N automation workflows using Next.js 14, FastAPI, React, Node.js, and Python.",
   keywords: [
+    "Full Stack Developer",
     "AI Engineer",
-    "Machine Learning",
     "N8N Automation",
-    "Next.js",
+    "Next.js 14",
+    "React",
+    "FastAPI",
+    "Node.js",
     "TypeScript",
-    "LLM",
+    "LLMs",
     "RAG",
     "Python",
-    "FastAPI",
     "Faraz Shoukat",
   ],
   authors: [{ name: "Faraz Shoukat" }],
@@ -35,16 +37,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://portfolio-website-faraz.vercel.app",
-    title: "Faraz Shoukat | AI & Automation Engineer",
+    title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
     description:
-      "AI Engineer and N8N Automation Engineer building AI-powered apps, LLM pipelines, and automation workflows.",
+      "Full Stack Developer & AI/Automation Engineer building Next.js web applications, LLM/RAG AI agents, and N8N automation workflows.",
     siteName: "Faraz Shoukat Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faraz Shoukat | AI & Automation Engineer",
+    title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
     description:
-      "AI Engineer and N8N Automation Engineer building AI-powered apps, LLM pipelines, and automation workflows.",
+      "Full Stack Developer & AI/Automation Engineer building Next.js web applications, LLM/RAG AI agents, and N8N automation workflows.",
   },
   robots: {
     index: true,

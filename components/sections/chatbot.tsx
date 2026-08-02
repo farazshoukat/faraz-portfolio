@@ -13,58 +13,56 @@ interface Message {
   content: string
 }
 
-// Predefined Q&A about Faraz
+// Predefined Q&A about Faraz based on official CV
 const qaDatabase: Record<string, string> = {
-  // Skills & Technologies
   skills:
-    "I specialize in Machine Learning (NLP, CNN, LLM, clustering, model tuning), Python for ML and data analysis, mobile development, and Ai Engineering(e.g. N8N Automation,AutoGPT,RAG etc). I'm always expanding my toolkit!",
+    "I specialize in Full Stack Development (Next.js 14, React, Node.js, Express, FastAPI, TypeScript, Tailwind CSS), AI & ML (LLMs, RAG, Groq, TensorFlow, Scikit-learn, NLP, CNNs), Databases (PostgreSQL, Supabase, MongoDB, Firebase), Mobile (Flutter, Firebase), and N8N Automation (15+ integrations, ~70% task reduction).",
   python:
-    "Python is my primary language for AI/ML work. I use it extensively with libraries like TensorFlow, Scikit-learn, NumPy, Pandas, and Matplotlib for building and training models, data analysis, and creating visualizations.",
+    "Python is my primary language for AI, ML, and backend development. I use it with FastAPI, LangChain, PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, and OpenCV.",
   flutter:
-    "I develop cross-platform mobile apps using Flutter and Dart. I'm experienced with Firebase integration for authentication, real-time databases, and cloud storage. I follow clean architecture patterns and use Provider for state management.",
-  networking:
-    "I have strong expertise in Computer Networks, including Cisco IOS configuration, VLANs, inter-VLAN routing, OSPF, BGP, STP, and VTP. I've designed and implemented enterprise-level network topologies using Packet Tracer.",
-  ml: "My Machine Learning expertise includes classification algorithms (Naive Bayes, KNN, Decision Trees), clustering, model tuning, and deep learning with CNNs. My FYP on Plant Disease Detection achieved 94% accuracy across 38 disease classes.",
+    "I build cross-platform mobile apps with Flutter and Dart. For my FYP FarmGuardian, I integrated TFLite (EfficientNet-B0) on-device inference with Supabase, Provider state management, and full Urdu localization via i18next.",
+  automation:
+    "At Lean Automation, I engineered N8N automation workflows integrating 15+ 3rd party services (APIs, webhooks, databases), reducing manual operational tasks by ~70%. I also design AI agent pipelines leveraging LLMs and RAG architectures.",
+  ml:
+    "My Machine Learning expertise includes LLMs & RAG, Random Forest, XGBoost, CNNs, TFLite, NLP, and model interpretability. My FYP FarmGuardian achieved 91% TFLite accuracy for crop disease detection.",
 
-  // Projects
   projects:
-    "My key projects include: 1) Plant Disease Detection using ML (94% accuracy CNN), 2) AI Pathfinding Simulation with A* algorithm, 3) Flutter Firebase CRUD apps, 4) Enterprise Network Labs with Cisco, and 5) Fashion AI Stylist concept project. Each showcases different aspects of my technical abilities.",
-  fyp: "My Final Year Project is a Plant Disease Detection system using Machine Learning. It uses Convolutional Neural Networks trained on leaf images to identify diseases across 38 classes with 94% accuracy. Built with Python, TensorFlow, OpenCV, and Flask.",
-  "plant disease":
-    "The Plant Disease Detection project is my FYP. It analyzes leaf images using CNNs to identify plant diseases. The model was trained on thousands of images and achieves 94% accuracy. It can identify 38 different disease types and healthy plant states.",
+    "My key projects include: 1) FarmGuardian (AI Crop Disease Assistant — 3rd & 1st Place People's Choice FYP Award), 2) Job Copilot (AI Resume Tailor & Cover Letter Generator), 3) Multilingual AI Support Agent (Groq & N8N), 4) AI Portfolio & CV Generator (FastAPI, WeasyPrint), and 5) Maternal-Fetal Risk System (Random Forest & XGBoost).",
+  fyp:
+    "My FYP is FarmGuardian — an offline-first AI crop disease detection & farming assistant. Built with React Native, TFLite (EfficientNet-B0, 91% accuracy), Random Forest yield prediction, Supabase & Urdu localization. It won 3rd Place & 1st Place (People's Choice) at COMSATS Abbottabad FYP Competition Spring 2026!",
+  "farmguardian":
+    "FarmGuardian is an AI crop assistant for Punjab farmers featuring on-device TFLite disease detection (91% accuracy), Random Forest yield predictions across 5 crops, mandi price tracking, and full Urdu localization via i18next.",
+  "job copilot":
+    "Job Copilot is a full-stack AI web app built with FastAPI, Next.js 14, Groq LLM & Supabase that ingests a resume PDF and job description, rewrites resume bullets for ATS matching, and generates a tailored cover letter in <60s.",
 
-  // Experience & Background
   experience:
-    "I have 3+ years of combined academic and freelance experience. I've led my FYP on Plant Disease Detection, worked as a freelance developer building AI/ML solutions and Flutter apps, assisted in university networking labs, and mentored junior students.",
+    "I worked as a Junior Software Engineer (Full Stack & N8N Automation) at Lean Automation (Jan 2026 – Apr 2026), building Next.js 14 UIs for IoT clients and 15+ N8N workflows (~70% task reduction). Previously, I was an AI Engineer Intern at Developers Hub Corporation (Aug 2025 – Oct 2025), delivering 5+ AI/ML projects.",
   education:
-    "I'm pursuing a BS in Computer Science with specialization in AI & ML and Network Administration. I've completed certifications in Machine Learning from Coursera/Stanford, Cisco CCNA Fundamentals, TensorFlow Developer Certificate, and Flutter Development.",
-  freelance:
-    "As a freelancer, I build AI/ML solutions and Flutter mobile applications. I handle end-to-end development from requirements gathering to deployment, focusing on delivering quality solutions that solve real problems for my clients.",
+    "I am completing my BS in Computer Science at COMSATS University Islamabad — Abbottabad Campus (Sep 2022 – Aug 2026), focusing on AI, ML, and Software Engineering.",
+  certifications:
+    "My certifications include: Foundation: Introduction to LangChain (Apr 2026), Generative AI Architectures with LLM, Prompt, RAG & VectorDB (Udemy 2025), Automate Everything: N8N Automation (Udemy 2025), Machine Learning A to Z (Udemy 2025), and N8N AI Agents by AdaptifyAI (Udemy 2024).",
 
-  // Career & Goals
   goals:
-    "My career goal is to become a leading AI Engineer, developing intelligent systems that solve real-world problems. I'm particularly interested in computer vision, healthcare AI, and making AI accessible to everyone.",
-  hire: "I'm currently available for opportunities! I'm looking for roles in AI/ML Engineering, Software Development, or Mobile Development. I bring strong technical skills, a passion for learning, and a track record of delivering quality projects.",
+    "My goal is to innovate at the intersection of Full Stack Engineering, Generative AI, and Automation — building scalable, high-impact products that automate complex workflows and empower users worldwide.",
+  hire:
+    "I am actively seeking Full Stack Developer, AI/ML Engineer, and Automation Engineer roles! I bring hands-on experience in Next.js 14, FastAPI, LLM/RAG pipelines, and N8N automation.",
   contact:
-    "You can reach me through the contact form on this website, connect with me on LinkedIn, or check out my projects on GitHub. I'm always open to discussing new opportunities and collaborations!",
+    "Feel free to email me at farazshoukat1@gmail.com, connect on LinkedIn (linkedin.com/in/faraz-shoukat-), or check out my GitHub (github.com/farazshoukat).",
 
-  // Personal
-  location: "I'm based in Pakistan and open to both remote opportunities and relocation for the right role.",
+  location: "I'm based in Abbottabad / Islamabad, Pakistan, and available for remote opportunities worldwide or relocation.",
   about:
-    "I'm Faraz Shoukat, an AI Engineer and Machine Learning enthusiast. I love turning complex problems into elegant solutions using AI, mobile development, and networking technologies. When I'm not coding, I enjoy mentoring others and exploring new technologies.",
+    "I'm Faraz Shoukat, a Full Stack Developer & AI Engineer passionate about building intelligent web applications, LLM agents, and automated data pipelines.",
 }
 
 function findBestMatch(query: string): string {
   const lowerQuery = query.toLowerCase()
 
-  // Direct keyword matching
   for (const [key, value] of Object.entries(qaDatabase)) {
     if (lowerQuery.includes(key)) {
       return value
     }
   }
 
-  // Pattern matching for common questions
   if (lowerQuery.includes("who") && (lowerQuery.includes("you") || lowerQuery.includes("faraz"))) {
     return qaDatabase.about
   }
@@ -86,7 +84,7 @@ function findBestMatch(query: string): string {
     lowerQuery.includes("study") ||
     lowerQuery.includes("degree") ||
     lowerQuery.includes("university") ||
-    lowerQuery.includes("certificate")
+    lowerQuery.includes("comsats")
   ) {
     return qaDatabase.education
   }
@@ -94,31 +92,22 @@ function findBestMatch(query: string): string {
     lowerQuery.includes("build") ||
     lowerQuery.includes("made") ||
     lowerQuery.includes("created") ||
-    lowerQuery.includes("work on")
+    lowerQuery.includes("project")
   ) {
     return qaDatabase.projects
   }
-  if (lowerQuery.includes("can do") || lowerQuery.includes("good at") || lowerQuery.includes("know")) {
+  if (lowerQuery.includes("can do") || lowerQuery.includes("good at") || lowerQuery.includes("skill")) {
     return qaDatabase.skills
   }
-  if (
-    lowerQuery.includes("want") ||
-    lowerQuery.includes("future") ||
-    lowerQuery.includes("aspire") ||
-    lowerQuery.includes("dream")
-  ) {
-    return qaDatabase.goals
-  }
 
-  // Default response
-  return "That's a great question! I can tell you about Faraz's skills (ML, Python, Flutter, Networking), projects (Plant Disease Detection, AI Pathfinding, Flutter apps), experience, education, or career goals. What would you like to know more about?"
+  return "I can tell you about Faraz's Full Stack & AI skills (Next.js 14, FastAPI, LLMs, N8N), key projects (FarmGuardian, Job Copilot), experience at Lean Automation, or education at COMSATS Abbottabad. What would you like to know?"
 }
 
 const suggestedQuestions = [
   "What are your main skills?",
   "Tell me about your projects",
-  "What's your FYP about?",
-  "Are you available for hire?",
+  "Tell me about FarmGuardian (FYP)",
+  "What is your experience?",
 ]
 
 export function ChatbotSection() {
@@ -127,7 +116,7 @@ export function ChatbotSection() {
       id: "welcome",
       role: "assistant",
       content:
-        "Hi! I'm Faraz AI, your virtual assistant. Ask me anything about Faraz's skills, projects, experience, or career goals. How can I help you today?",
+        "Hi! I'm Faraz AI. Ask me anything about Faraz's full-stack skills, AI projects, N8N automation experience, or education at COMSATS Abbottabad!",
     },
   ])
   const [input, setInput] = useState("")
@@ -157,8 +146,7 @@ export function ChatbotSection() {
     setInput("")
     setIsTyping(true)
 
-    // Simulate AI thinking delay
-    await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 500))
+    await new Promise((resolve) => setTimeout(resolve, 800 + Math.random() * 400))
 
     const response = findBestMatch(input)
     const assistantMessage: Message = {
@@ -177,7 +165,7 @@ export function ChatbotSection() {
         id: "welcome",
         role: "assistant",
         content:
-          "Hi! I'm Faraz AI, your virtual assistant. Ask me anything about Faraz's skills, projects, experience, or career goals. How can I help you today?",
+          "Hi! I'm Faraz AI. Ask me anything about Faraz's full-stack skills, AI projects, N8N automation experience, or education at COMSATS Abbottabad!",
       },
     ])
   }
@@ -199,7 +187,7 @@ export function ChatbotSection() {
             <span className="text-primary text-sm font-medium tracking-wider uppercase">AI Assistant</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">Ask Faraz AI</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Have questions about my skills, projects, or experience? Chat with my AI assistant for instant answers.
+              Have questions about my Full Stack engineering skills, AI projects, or experience? Chat with my AI assistant for instant answers.
             </p>
           </div>
 
@@ -218,7 +206,7 @@ export function ChatbotSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Faraz AI</h3>
-                    <p className="text-xs text-muted-foreground">Always here to help</p>
+                    <p className="text-xs text-muted-foreground font-mono">Knowledgeable & Ready</p>
                   </div>
                 </div>
                 <Button

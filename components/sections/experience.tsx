@@ -2,41 +2,40 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Briefcase, Code, Users, CheckCircle2 } from "lucide-react"
+import { Briefcase, Code, CheckCircle2 } from "lucide-react"
 
 const experiences = [
   {
-    period: "Nov 2025 – Present",
-    title: "N8N Automation Engineer",
+    period: "Jan 2026 – Apr 2026",
+    title: "Junior Software Engineer (Full Stack & N8N Automation)",
     company: "Lean Automation",
     type: "Full-time",
     description:
-      "Building intelligent automation pipelines and integrations for clients. Designing and deploying N8N workflows that streamline business processes end-to-end.",
-    achievements: ["~70% reduction in manual tasks", "15+ integrations built", "End-to-end automation"],
+      "Developed production web apps with Next.js 14 & TypeScript for industrial IoT clients. Built N8N automation workflows across 15+ services (reducing manual tasks by ~70%), contributed to Node.js microservices for 1,000s of active users, and architected LLM/RAG AI agent pipelines.",
+    achievements: [
+      "~70% manual operational task reduction via N8N",
+      "Next.js 14, TypeScript & Tailwind UIs for IoT",
+      "Node.js microservices serving 1,000s of daily active users",
+      "LLM & RAG AI agent pipelines for productivity",
+    ],
     icon: Briefcase,
     color: "#00e5ff",
   },
   {
-    period: "Aug – Dec 2025",
+    period: "Aug 2025 – Oct 2025",
     title: "AI Engineer Intern",
-    company: "Developers Hub",
+    company: "Developers Hub Corporation — Islamabad, Pakistan",
     type: "Internship",
     description:
-      "Built AI/ML solutions and applications for clients. Delivered end-to-end solutions from requirements gathering to deployment.",
-    achievements: ["5+ projects delivered", "Cross-platform apps", "Client satisfaction"],
+      "Delivered 5+ end-to-end AI/ML client projects spanning NLP, LLMs, and RAG QA systems in an agile setup. Integrated production ML data pipelines from ingestion to deployment and developed cross-platform mobile apps with Flutter & Firebase.",
+    achievements: [
+      "5+ end-to-end AI/ML client projects delivered",
+      "NLP, LLM & RAG QA architecture implementation",
+      "End-to-end ML data ingestion & model deployment",
+      "Flutter & Firebase cross-platform mobile apps",
+    ],
     icon: Code,
     color: "#a855f7",
-  },
-  {
-    period: "Jan – Mar 2025",
-    title: "AI Integration & Web Development Intern",
-    company: "Delta Technologies",
-    type: "Internship",
-    description:
-      "Integrated AI components into client applications by implementing machine learning models, optimizing data pipelines, and supporting AI-driven features.",
-    achievements: ["30+ integrations", "10+ websites built", "Positive reviews"],
-    icon: Users,
-    color: "#6366f1",
   },
 ]
 
@@ -66,7 +65,7 @@ export function ExperienceSection() {
               <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A timeline of my professional experience building AI solutions and automation pipelines.
+              A track record of engineering full-stack Web apps, AI/ML solutions, and enterprise N8N automations.
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export function ExperienceSection() {
           <div className="max-w-3xl mx-auto relative">
             {/* Animated vertical line */}
             <div className="absolute left-6 top-0 bottom-0 w-px"
-              style={{ background: "linear-gradient(to bottom, rgba(0,229,255,0.5), rgba(168,85,247,0.5), rgba(99,102,241,0.3), transparent)" }} />
+              style={{ background: "linear-gradient(to bottom, rgba(0,229,255,0.5), rgba(168,85,247,0.5), transparent)" }} />
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
@@ -100,7 +99,6 @@ export function ExperienceSection() {
                     >
                       <exp.icon className="h-5 w-5" style={{ color: exp.color }} />
                     </motion.div>
-                    {/* Pulsing ring for current job */}
                     {index === 0 && (
                       <motion.div
                         animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
@@ -159,7 +157,7 @@ export function ExperienceSection() {
                         {exp.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="grid sm:grid-cols-2 gap-2">
                         {exp.achievements.map((achievement) => (
                           <div
                             key={achievement}

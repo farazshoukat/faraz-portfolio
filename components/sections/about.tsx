@@ -2,53 +2,46 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
-import { MapPin, Briefcase, GraduationCap, Calendar } from "lucide-react"
+import { MapPin, Briefcase, GraduationCap, Trophy } from "lucide-react"
 
 const techStack = [
-  "Python", "Next.js", "TypeScript", "FastAPI", "N8N",
-  "LangChain", "RAG", "Machine Learning", "TensorFlow", "Git", "SQL", "Docker",
+  "TypeScript", "JavaScript (ES6+)", "Python", "Next.js 14", "React.js",
+  "Node.js", "Express.js", "FastAPI", "N8N Automation", "LLMs & RAG",
+  "PostgreSQL", "Supabase", "MongoDB", "Flutter", "Docker", "Tailwind CSS",
 ]
 
 const timeline = [
   {
-    year: "Nov 2025 – Present",
-    title: "N8N Automation Engineer",
+    year: "Jan 2026 – Apr 2026",
+    title: "Junior Software Engineer (Full Stack & N8N)",
     company: "Lean Automation",
-    description: "~70% reduction in manual tasks · 15+ integrations",
+    description: "Built Next.js 14 UIs for industrial IoT clients, 15+ N8N automation workflows (~70% task reduction), and Node.js REST microservices.",
     icon: Briefcase,
     color: "#00e5ff",
   },
   {
-    year: "Aug – Dec 2025",
+    year: "Aug 2025 – Oct 2025",
     title: "AI Engineer Intern",
-    company: "Developers Hub",
-    description: "5+ AI/ML solutions delivered end-to-end",
+    company: "Developers Hub Corporation — Islamabad",
+    description: "Delivered 5+ AI/ML client projects (NLP, LLMs, RAG QA systems), end-to-end ML data pipelines, and Flutter mobile apps.",
     icon: Briefcase,
     color: "#a855f7",
   },
   {
-    year: "Jan – Mar 2025",
-    title: "AI & Web Dev Intern",
-    company: "Delta Technologies",
-    description: "30+ integrations · 10+ websites built",
-    icon: Calendar,
-    color: "#6366f1",
-  },
-  {
-    year: "2022 – 2025",
+    year: "Sep 2022 – Aug 2026",
     title: "BSc Computer Science",
-    company: "University",
-    description: "FYP: FarmGuardian — CNN, 87K+ images, 94% accuracy",
+    company: "COMSATS University Islamabad — Abbottabad Campus",
+    description: "Focused on AI, ML & Software Engineering. FYP: FarmGuardian — Won 3rd Place & 1st Place (People's Choice) Spring 2026.",
     icon: GraduationCap,
-    color: "#00e5ff",
+    color: "#6366f1",
   },
 ]
 
 const statItems = [
-  { value: 2, suffix: "+", label: "Years Experience" },
+  { value: 70, suffix: "%", label: "Task Reduction (N8N)" },
   { value: 15, suffix: "+", label: "Integrations Built" },
-  { value: 5, suffix: "+", label: "AI Projects" },
-  { value: 87, suffix: "K+", label: "Images Trained" },
+  { value: 5, suffix: "+", label: "AI Client Projects" },
+  { value: 91, suffix: "%", label: "TFLite Model Acc." },
 ]
 
 function AnimatedCounter({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
@@ -100,11 +93,11 @@ export function AboutSection() {
               <span className="section-label">About Me</span>
             </motion.div>
             <h2 className="text-3xl md:text-5xl font-bold mt-5 mb-4 font-display">
-              Building the Future{" "}
-              <span className="gradient-text">with AI</span>
+              Full Stack Engineering{" "}
+              <span className="gradient-text">& AI Automation</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Passionate about leveraging artificial intelligence and automation to solve real-world problems.
+              Delivering high-performance web applications, LLM/RAG architectures, and end-to-end automation pipelines.
             </p>
           </div>
 
@@ -131,20 +124,20 @@ export function AboutSection() {
 
                 <div className="flex items-center gap-2 mb-5 pl-4">
                   <MapPin className="h-4 w-4" style={{ color: "#00e5ff" }} />
-                  <span className="text-sm" style={{ color: "rgba(0,229,255,0.8)" }}>Abbottabad, Pakistan · Open to Remote</span>
+                  <span className="text-sm" style={{ color: "rgba(0,229,255,0.8)" }}>Abbottabad / Islamabad, Pakistan · Open to Remote & Relocation</span>
                 </div>
 
                 <div className="pl-4">
                   <p className="leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {"I'm "}
                     <span className="font-semibold" style={{ color: "#00e5ff" }}>Faraz Shoukat</span>
-                    {", an AI Engineer and Automation Engineer with 2+ years building AI/ML projects and professional experience at Lean Automation and two AI internships."}
+                    {", a Full Stack Developer & AI Engineer with professional experience at Lean Automation and Developers Hub Corporation."}
                   </p>
                   <p className="leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    My expertise spans Machine Learning algorithms (NLP, CNN, LLM, clustering, model tuning), RAG pipelines, and full-stack development with Next.js. Currently at Lean Automation, I build N8N automation workflows that have reduced manual tasks by ~70% across 15+ integrations.
+                    My engineering toolkit spans modern full-stack frameworks (Next.js 14, React.js, Node.js, Express, FastAPI, Tailwind CSS), AI agent architectures (LLMs, RAG, Groq, LangChain), and automated workflow engineering with N8N (15+ integrations cutting manual operational tasks by ~70%).
                   </p>
                   <p className="leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    My FYP — FarmGuardian — is an AI-powered digital farming assistant using a CNN trained on 87,000+ images with 94% accuracy and offline inference.
+                    My FYP — <span className="text-primary font-medium">FarmGuardian</span> — won <span style={{ color: "#00e5ff" }}>3rd Place</span> & <span style={{ color: "#a855f7" }}>1st Place (People&apos;s Choice)</span> at COMSATS Abbottabad. It delivers on-device TFLite crop disease detection (91% accuracy) and Random Forest yield predictions to farmers.
                   </p>
                 </div>
               </div>

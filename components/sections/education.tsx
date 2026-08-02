@@ -7,42 +7,49 @@ import { GraduationCap, Award, BookOpen, ExternalLink, BadgeCheck } from "lucide
 const education = {
   degree: {
     title: "Bachelor of Science in Computer Science",
-    institution: "University of Pakistan",
-    period: "2021 – 2025",
+    institution: "COMSATS University Islamabad — Abbottabad Campus",
+    period: "Sep 2022 – Aug 2026",
     description:
-      "Focused on Artificial Intelligence, Machine Learning, and Computer Networks. Final Year Project: Plant Disease Detection using ML.",
-    highlights: ["AI & ML Specialization", "Network Administration", "Software Engineering"],
+      "Focused on Artificial Intelligence, Machine Learning, and Software Engineering. FYP: FarmGuardian — AI Crop Disease Detection & Farm Assistant (Won 3rd Place & 1st Place People's Choice at FYP Competition Spring 2026).",
+    highlights: ["AI & ML Focus", "Software Engineering", "FYP Award Winner"],
   },
 }
 
 const certifications = [
   {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera / Stanford",
-    date: "2024",
+    title: "Foundation: Introduction to LangChain — Python",
+    issuer: "LangChain Academy",
+    date: "Apr 2026",
     link: "#",
     color: "#00e5ff",
   },
   {
-    title: "Cisco CCNA Fundamentals",
-    issuer: "Cisco Networking Academy",
-    date: "2023",
+    title: "Generative AI Architectures (LLM, Prompt, RAG & VectorDB)",
+    issuer: "Udemy",
+    date: "2025",
     link: "#",
     color: "#a855f7",
   },
   {
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google / Coursera",
-    date: "2024",
+    title: "Automate Everything: N8N Automation",
+    issuer: "Udemy",
+    date: "2025",
     link: "#",
     color: "#6366f1",
   },
   {
-    title: "Flutter Development Bootcamp",
+    title: "Machine Learning A to Z: Hands-On Python & R",
     issuer: "Udemy",
-    date: "2023",
+    date: "2025",
     link: "#",
     color: "#00e5ff",
+  },
+  {
+    title: "N8N AI Agents by AdaptifyAI",
+    issuer: "Udemy",
+    date: "2024",
+    link: "#",
+    color: "#a855f7",
   },
 ]
 
@@ -50,11 +57,11 @@ const courses = [
   "Data Structures & Algorithms",
   "Artificial Intelligence",
   "Machine Learning",
-  "Computer Networks",
   "Database Systems",
   "Software Engineering",
   "Operating Systems",
   "Mobile App Development",
+  "Discrete Mathematics",
 ]
 
 export function EducationSection() {
@@ -82,7 +89,7 @@ export function EducationSection() {
               <span className="gradient-text">Background</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              My educational foundation and professional certifications in technology.
+              My formal degree at COMSATS University Abbottabad and industry certifications in AI, LLMs, and N8N automation.
             </p>
           </div>
 
@@ -92,66 +99,68 @@ export function EducationSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="lg:col-span-2 rounded-2xl p-8 relative overflow-hidden group"
+              className="lg:col-span-2 rounded-2xl p-8 relative overflow-hidden group flex flex-col justify-between"
               style={{
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(255,255,255,0.07)",
                 backdropFilter: "blur(20px)",
               }}
             >
-              {/* Gradient border top */}
-              <div className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: "linear-gradient(90deg, transparent, #00e5ff60, #a855f760, transparent)" }} />
+              <div>
+                {/* Gradient border top */}
+                <div className="absolute top-0 left-0 right-0 h-px"
+                  style={{ background: "linear-gradient(90deg, transparent, #00e5ff60, #a855f760, transparent)" }} />
 
-              {/* Glow orb in corner */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)" }} />
+                {/* Glow orb in corner */}
+                <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full pointer-events-none"
+                  style={{ background: "radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)" }} />
 
-              <div className="flex items-start gap-5 mb-6">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: "rgba(0,229,255,0.08)",
-                    border: "1px solid rgba(0,229,255,0.2)",
-                    boxShadow: "0 0 24px rgba(0,229,255,0.1)",
-                  }}
-                >
-                  <GraduationCap className="h-8 w-8" style={{ color: "#00e5ff" }} />
-                </div>
-                <div>
-                  <span className="text-sm font-medium" style={{ color: "#00e5ff" }}>{education.degree.period}</span>
-                  <h3 className="text-xl font-bold font-display mt-1" style={{ color: "rgba(255,255,255,0.95)" }}>
-                    {education.degree.title}
-                  </h3>
-                  <p className="mt-1" style={{ color: "rgba(255,255,255,0.45)" }}>{education.degree.institution}</p>
-                </div>
-              </div>
-
-              <p className="leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
-                {education.degree.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-8">
-                {education.degree.highlights.map((h) => (
-                  <span
-                    key={h}
-                    className="px-3 py-1.5 text-sm font-medium rounded-full"
+                <div className="flex items-start gap-5 mb-6">
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
                     style={{
-                      background: "rgba(0,229,255,0.07)",
+                      background: "rgba(0,229,255,0.08)",
                       border: "1px solid rgba(0,229,255,0.2)",
-                      color: "#00e5ff",
+                      boxShadow: "0 0 24px rgba(0,229,255,0.1)",
                     }}
                   >
-                    {h}
-                  </span>
-                ))}
+                    <GraduationCap className="h-8 w-8" style={{ color: "#00e5ff" }} />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium" style={{ color: "#00e5ff" }}>{education.degree.period}</span>
+                    <h3 className="text-xl font-bold font-display mt-1" style={{ color: "rgba(255,255,255,0.95)" }}>
+                      {education.degree.title}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>{education.degree.institution}</p>
+                  </div>
+                </div>
+
+                <p className="leading-relaxed mb-6 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  {education.degree.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {education.degree.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="px-3 py-1.5 text-sm font-medium rounded-full"
+                      style={{
+                        background: "rgba(0,229,255,0.07)",
+                        border: "1px solid rgba(0,229,255,0.2)",
+                        color: "#00e5ff",
+                      }}
+                    >
+                      {h}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Relevant Courses */}
               <div className="pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
                 <div className="flex items-center gap-2 mb-4">
                   <BookOpen className="h-4 w-4" style={{ color: "#a855f7" }} />
-                  <h4 className="font-medium text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>Relevant Courses</h4>
+                  <h4 className="font-medium text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>Relevant Coursework</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {courses.map((course, i) => (
@@ -188,7 +197,7 @@ export function EducationSection() {
             >
               <div className="flex items-center gap-2 mb-6">
                 <Award className="h-5 w-5" style={{ color: "#a855f7" }} />
-                <h3 className="font-semibold font-display" style={{ color: "rgba(255,255,255,0.85)" }}>Certifications</h3>
+                <h3 className="font-semibold font-display" style={{ color: "rgba(255,255,255,0.85)" }}>Certifications & Courses</h3>
               </div>
 
               <div className="space-y-4">
@@ -209,20 +218,11 @@ export function EducationSection() {
                     <div className="flex-1">
                       <div className="flex items-start justify-between gap-1">
                         <h4
-                          className="text-sm font-medium transition-colors"
-                          style={{ color: "rgba(255,255,255,0.8)" }}
+                          className="text-xs font-medium leading-snug transition-colors"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
                         >
                           {cert.title}
                         </h4>
-                        <a
-                          href={cert.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          style={{ color: cert.color }}
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
                       </div>
                       <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
                         {cert.issuer} · {cert.date}

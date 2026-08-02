@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Mail, MapPin, Github, Linkedin, Send, CheckCircle, AlertCircle, ArrowRight } from "lucide-react"
+import { Mail, MapPin, Github, Linkedin, Send, CheckCircle, AlertCircle, ArrowRight, Globe } from "lucide-react"
 
 const socialLinks = [
   {
@@ -13,15 +13,15 @@ const socialLinks = [
     href: "https://github.com/farazshoukat",
     username: "@farazshoukat",
     color: "#00e5ff",
-    desc: "Open source projects",
+    desc: "Open source repositories",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/faraz-shoukat-539161289/",
+    href: "https://www.linkedin.com/in/faraz-shoukat-",
     username: "Faraz Shoukat",
     color: "#a855f7",
-    desc: "Professional network",
+    desc: "Professional connection",
   },
   {
     name: "Email",
@@ -114,7 +114,7 @@ export function ContactSection() {
               <span className="gradient-text">Together</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {"Have a project in mind or want to discuss opportunities? I'd love to hear from you."}
+              {"Have a Full Stack, AI/ML, or N8N automation project in mind? I'd love to hear from you."}
             </p>
           </div>
 
@@ -147,7 +147,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Location</p>
-                    <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>Pakistan · Open to Remote</p>
+                    <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>Abbottabad / Islamabad, Pakistan (Open to Remote / Relocation)</p>
                   </div>
                 </div>
 

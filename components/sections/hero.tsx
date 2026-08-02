@@ -2,16 +2,15 @@
 
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
-import { ArrowDown, Download, MessageSquare, FolderOpen, Zap, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowDown, Download, MessageSquare, FolderOpen, Zap } from "lucide-react"
 import Link from "next/link"
 
-const roles = ["AI Engineer", "ML Engineer", "Full Stack Developer", "Automation Engineer"]
+const roles = ["Full Stack Developer", "AI & Automation Engineer", "N8N Workflow Specialist", "ML & LLM Engineer"]
 
 const stats = [
-  { value: "2+", label: "Years Exp" },
+  { value: "~70%", label: "Task Cut (N8N)" },
   { value: "15+", label: "Integrations" },
-  { value: "94%", label: "CNN Accuracy" },
+  { value: "91%", label: "TFLite Acc." },
   { value: "5+", label: "AI Projects" },
 ]
 
@@ -157,7 +156,7 @@ export function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: "#00e5ff" }} />
                 <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: "#00e5ff" }} />
               </span>
-              Available for opportunities
+              Available for full stack & AI opportunities
             </div>
           </motion.div>
 
@@ -194,7 +193,7 @@ export function HeroSection() {
             className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            I build AI-powered web applications and automation pipelines using Next.js, LLMs, and N8N.{" "}
+            I build production web applications, AI pipelines, and automation workflows using Next.js 14, FastAPI, LLMs, and N8N.{" "}
             <span style={{ color: "rgba(255,255,255,0.7)" }}>Based in Pakistan.</span>
           </motion.p>
 
