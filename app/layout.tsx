@@ -1,64 +1,80 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Geist_Mono, Space_Grotesk } from "next/font/google"
+import { JetBrains_Mono, Fraunces } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { ThemeProvider } from "@/components/theme-provider"
+import { SmoothScrollProvider } from "@/components/providers/smooth-scroll"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
-const spaceGrotesk = Space_Grotesk({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-fraunces",
+  weight: "variable",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  weight: ["400", "500"],
 })
 
 export const metadata: Metadata = {
-  title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
+  metadataBase: new URL("https://farazshoukat.dev"),
+  title: "Faraz Shoukat — Full-Stack & AI Engineer",
   description:
-    "Full Stack Developer & AI/Automation Engineer with experience at Lean Automation & Developers Hub. Building production web applications, LLM/RAG pipelines, and N8N automation workflows using Next.js 14, FastAPI, React, Node.js, and Python.",
+    "Full-stack engineer building production web applications, AI agents, and automation pipelines. React/Next.js, FastAPI, LangGraph, RAG, and n8n — based in Pakistan, available for freelance.",
   keywords: [
+    "Faraz Shoukat",
     "Full Stack Developer",
     "AI Engineer",
-    "N8N Automation",
-    "Next.js 14",
-    "React",
+    "Next.js",
     "FastAPI",
-    "Node.js",
-    "TypeScript",
-    "LLMs",
+    "LangGraph",
     "RAG",
+    "LLM",
+    "n8n Automation",
+    "React",
+    "TypeScript",
     "Python",
-    "Faraz Shoukat",
+    "Pakistan",
+    "Freelance",
   ],
-  authors: [{ name: "Faraz Shoukat" }],
+  authors: [{ name: "Faraz Shoukat", url: "https://farazshoukat.dev" }],
   creator: "Faraz Shoukat",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-website-faraz.vercel.app",
-    title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
+    url: "https://farazshoukat.dev",
+    title: "Faraz Shoukat — Full-Stack & AI Engineer",
     description:
-      "Full Stack Developer & AI/Automation Engineer building Next.js web applications, LLM/RAG AI agents, and N8N automation workflows.",
-    siteName: "Faraz Shoukat Portfolio",
+      "Full-stack engineer building production web apps, AI agents, and automation pipelines.",
+    siteName: "Faraz Shoukat",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Faraz Shoukat — Full-Stack & AI Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faraz Shoukat | Full Stack Developer & AI/Automation Engineer",
+    title: "Faraz Shoukat — Full-Stack & AI Engineer",
     description:
-      "Full Stack Developer & AI/Automation Engineer building Next.js web applications, LLM/RAG AI agents, and N8N automation workflows.",
+      "Full-stack engineer building production web apps, AI agents, and automation pipelines.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true },
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#050b18" },
-  ],
+  themeColor: "#121210",
   width: "device-width",
   initialScale: 1,
 }
@@ -69,12 +85,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+    <html lang="en" className={`${fraunces.variable} ${jetbrainsMono.variable}`}>
+      <body>
+        <SmoothScrollProvider>
           {children}
-          <Analytics />
-        </ThemeProvider>
+        </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   )

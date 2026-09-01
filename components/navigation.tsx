@@ -1,206 +1,260 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, MessageSquare, Zap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { cn } from "@/lib/utils"
+import { gsap } from "gsap"
+import { projects } from "@/lib/data/projects"
 
 const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Work", href: "#work" },
+  { name: "Services", href: "#services" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ]
 
 export function Navigation() {
+  const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("")
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const linksRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const line1Ref = useRef<HTMLSpanElement>(null)
+  const line2Ref = useRef<HTMLSpanElement>(null)
+  const line3Ref = useRef<HTMLSpanElement>(null)
 
+  // Scroll detection
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-
-      // Active section tracking
-      const sections = navItems.map((item) => item.href.replace("#", ""))
-      for (const section of sections.reverse()) {
-        const el = document.getElementById(section)
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(section)
-          break
-        }
-      }
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setIsScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  // Nav overlay open/close animation
+  useEffect(() => {
+    const overlay = overlayRef.current
+    const links = linksRef.current
+    if (!overlay || !links) return
+
+    if (isOpen) {
+      document.body.classList.add("nav-open")
+
+      // Expand overlay from top-right (hamburger position)
+      gsap.to(overlay, {
+        clipPath: "circle(150% at calc(100% - 2rem) 2rem)",
+        duration: 0.6,
+        ease: "power4.inOut",
+        pointerEvents: "all",
+      })
+
+      // Stagger links in after overlay is ~70% open
+      const linkEls = links.querySelectorAll(".nav-overlay-link")
+      gsap.fromTo(
+        linkEls,
+        { yPercent: 100, opacity: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power3.out",
+          stagger: 0.07,
+          delay: 0.3,
+        }
+      )
+
+      // Hamburger → X morph
+      gsap.to(line1Ref.current, { rotate: 45, y: 8, duration: 0.3, ease: "power2.inOut" })
+      gsap.to(line2Ref.current, { opacity: 0, x: -10, duration: 0.2 })
+      gsap.to(line3Ref.current, { rotate: -45, y: -8, duration: 0.3, ease: "power2.inOut" })
+    } else {
+      document.body.classList.remove("nav-open")
+
+      gsap.to(overlay, {
+        clipPath: "circle(0% at calc(100% - 2rem) 2rem)",
+        duration: 0.5,
+        ease: "power4.inOut",
+        pointerEvents: "none",
+      })
+
+      // Hamburger ← X morph
+      gsap.to(line1Ref.current, { rotate: 0, y: 0, duration: 0.3, ease: "power2.inOut" })
+      gsap.to(line2Ref.current, { opacity: 1, x: 0, duration: 0.3 })
+      gsap.to(line3Ref.current, { rotate: 0, y: 0, duration: 0.3, ease: "power2.inOut" })
+    }
+  }, [isOpen])
+
+  const closeNav = () => setIsOpen(false)
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+      {/* Fixed nav bar */}
+      <header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={
           isScrolled
-            ? "glass border-b border-white/10"
-            : "bg-transparent",
-        )}
-        style={isScrolled ? {
-          boxShadow: "0 0 40px rgba(0,229,255,0.05), inset 0 -1px 0 rgba(0,229,255,0.1)"
-        } : {}}
+            ? {
+                backgroundColor: "rgba(18, 18, 16, 0.92)",
+                backdropFilter: "blur(20px)",
+                borderBottom: "1px solid rgba(236, 232, 222, 0.07)",
+              }
+            : {}
+        }
       >
-        <nav className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+        <nav className="container-wide h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative group flex items-center gap-2">
-            <div className="relative">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold font-display"
-                style={{
-                  background: "linear-gradient(135deg, rgba(0,229,255,0.15), rgba(168,85,247,0.15))",
-                  border: "1px solid rgba(0,229,255,0.3)",
-                  color: "#00e5ff",
-                  boxShadow: "0 0 20px rgba(0,229,255,0.15)"
-                }}>
-                FS
-              </div>
+          <Link href="/" className="flex items-center gap-2.5 group" onClick={closeNav}>
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 8,
+                background: "rgba(255, 176, 32, 0.1)",
+                border: "1px solid rgba(255, 176, 32, 0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "var(--font-jetbrains), monospace",
+                fontSize: "0.7rem",
+                fontWeight: 500,
+                color: "var(--signal)",
+                letterSpacing: "0.05em",
+                transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+              }}
+              className="group-hover:border-signal"
+            >
+              FS
             </div>
-            <span className="text-lg font-bold font-display text-foreground group-hover:text-primary transition-colors">
-              Faraz<span style={{ color: "#00e5ff" }}>.</span>
+            <span
+              className="font-display text-base font-medium"
+              style={{ color: "var(--paper)", letterSpacing: "-0.01em" }}
+            >
+              Faraz Shoukat
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href.replace("#", "")
-              return (
+          {/* Desktop nav links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="nav-link-animated section-label hover:text-paper transition-colors duration-200"
+                style={{ fontSize: "0.75rem" }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Hamburger */}
+          <button
+            ref={hamburgerRef}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isOpen}
+            className="relative z-[110] flex flex-col gap-[6px] items-end justify-center w-10 h-10"
+          >
+            <span
+              ref={line1Ref}
+              className="block h-[1.5px] w-6 origin-center"
+              style={{ background: "var(--paper)", borderRadius: 2 }}
+            />
+            <span
+              ref={line2Ref}
+              className="block h-[1.5px] w-4 origin-center"
+              style={{ background: "var(--paper)", borderRadius: 2 }}
+            />
+            <span
+              ref={line3Ref}
+              className="block h-[1.5px] w-6 origin-center"
+              style={{ background: "var(--paper)", borderRadius: 2 }}
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Full-screen overlay */}
+      <div
+        ref={overlayRef}
+        className="nav-overlay"
+        style={{ clipPath: "circle(0% at calc(100% - 2rem) 2rem)" }}
+      >
+        <div className="container-wide h-full flex flex-col justify-center">
+          <div ref={linksRef} className="flex flex-col gap-1">
+            {navItems.map((item) => (
+              <div key={item.name} style={{ overflow: "hidden" }}>
                 <Link
-                  key={item.name}
                   href={item.href}
-                  className={cn(
-                    "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
-                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground",
-                  )}
+                  onClick={closeNav}
+                  className="nav-overlay-link nav-link-animated block"
+                  style={{
+                    fontFamily: "var(--font-fraunces), serif",
+                    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                    fontWeight: 400,
+                    color: "var(--paper)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                    paddingBottom: "0.6rem",
+                    display: "block",
+                  }}
                 >
                   {item.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-lg"
-                      style={{
-                        background: "rgba(0,229,255,0.08)",
-                        border: "1px solid rgba(0,229,255,0.15)",
-                      }}
-                      transition={{ type: "spring", bounce: 0.3, duration: 0.4 }}
-                    />
-                  )}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-1/2 transition-all duration-300 rounded-full" />
                 </Link>
-              )
-            })}
-            <Link href="#chatbot" className="ml-3">
-              <Button
-                variant="default"
-                size="sm"
-                className="gap-2 font-medium"
-                style={{
-                  background: "linear-gradient(135deg, #00e5ff, #6366f1)",
-                  border: "none",
-                  boxShadow: "0 0 20px rgba(0,229,255,0.25)",
-                  color: "#050b18",
-                  fontWeight: 600,
-                }}
-              >
-                <Zap className="h-3.5 w-3.5" />
-                Ask AI
-              </Button>
-            </Link>
-            <ThemeToggle />
+              </div>
+            ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative"
-              style={{ border: "1px solid rgba(0,229,255,0.2)", borderRadius: "10px" }}
-            >
-              <AnimatePresence mode="wait">
-                {isMobileMenuOpen ? (
-                  <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                    <X className="h-5 w-5" />
-                  </motion.span>
-                ) : (
-                  <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                    <Menu className="h-5 w-5" />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </Button>
-          </div>
-        </nav>
-      </motion.header>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 pt-20 md:hidden"
-            style={{
-              background: "rgba(5,11,24,0.97)",
-              backdropFilter: "blur(24px)",
-            }}
-          >
-            <nav className="container mx-auto px-4 flex flex-col gap-2 mt-4">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
+          {/* Project list in overlay */}
+          <div className="mt-12 overflow-hidden">
+            <div className="nav-overlay-link">
+              <p className="section-label mb-3">Selected Work</p>
+              <div className="flex flex-wrap gap-x-6 gap-y-1">
+                {projects.map((p) => (
                   <Link
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-4 rounded-xl text-lg font-medium text-muted-foreground hover:text-foreground transition-all"
-                    style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+                    key={p.slug}
+                    href={`/work/${p.slug}`}
+                    onClick={closeNav}
+                    className="nav-link-animated"
+                    style={{ color: "var(--muted-color)", fontSize: "0.875rem" }}
                   >
-                    <span className="text-primary text-xs">0{i + 1}</span>
-                    {item.name}
+                    {p.title}
                   </Link>
-                </motion.div>
-              ))}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <Link href="#chatbot" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button
-                    className="w-full mt-4 gap-2 font-semibold"
-                    style={{
-                      background: "linear-gradient(135deg, #00e5ff, #6366f1)",
-                      color: "#050b18",
-                      boxShadow: "0 0 24px rgba(0,229,255,0.3)",
-                    }}
-                  >
-                    <Zap className="h-4 w-4" />
-                    Ask Faraz AI
-                  </Button>
-                </Link>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Social links in overlay */}
+          <div className="mt-10 overflow-hidden">
+            <div className="nav-overlay-link flex items-center gap-6">
+              <a
+                href="https://github.com/farazshoukat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link-animated section-label hover:text-paper transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/faraz-shoukat-539161289/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link-animated section-label hover:text-paper transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://instagram.com/faraz.work"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link-animated section-label hover:text-paper transition-colors"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

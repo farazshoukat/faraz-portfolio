@@ -1,39 +1,50 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState, useCallback } from "react"
 import { Navigation } from "@/components/navigation"
-import { ScrollProgress } from "@/components/scroll-progress"
+import { CustomCursor } from "@/components/cursor"
+import { Preloader } from "@/components/preloader"
 import { HeroSection } from "@/components/sections/hero"
 import { AboutSection } from "@/components/sections/about"
 import { SkillsSection } from "@/components/sections/skills"
-import { ProjectsSection } from "@/components/sections/projects"
+import { WorkSection } from "@/components/sections/projects"
 import { ExperienceSection } from "@/components/sections/experience"
-import { EducationSection } from "@/components/sections/education"
-import { ChatbotSection } from "@/components/sections/chatbot"
+import { AvailabilitySection } from "@/components/sections/availability"
 import { ContactSection } from "@/components/sections/contact"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
-  // Always start at the top when the page loads
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" })
+  const [preloaderDone, setPreloaderDone] = useState(false)
+
+  const handlePreloaderComplete = useCallback(() => {
+    setPreloaderDone(true)
   }, [])
 
   return (
     <>
-      <ScrollProgress />
-      <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <EducationSection />
-        <ChatbotSection />
-        <ContactSection />
-      </main>
-      <Footer />
+      <CustomCursor />
+      <Preloader onComplete={handlePreloaderComplete} />
+
+      {/* Main content fades in after preloader */}
+      <div
+        style={{
+          opacity: preloaderDone ? 1 : 0,
+          transition: "opacity 0.4s ease",
+          pointerEvents: preloaderDone ? "auto" : "none",
+        }}
+      >
+        <Navigation />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <WorkSection />
+          <ExperienceSection />
+          <AvailabilitySection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }
