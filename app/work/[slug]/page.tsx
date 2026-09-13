@@ -1,3 +1,4 @@
+import "../../portfolio.css"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -35,7 +36,7 @@ export default async function WorkCaseStudy({ params }: Props) {
   if (!project) notFound()
 
   return (
-    <main
+    <main className="portfolio case-study"
       style={{ background: "var(--ink)", color: "var(--paper)", minHeight: "100vh" }}
     >
       {/* Nav back link */}

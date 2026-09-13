@@ -1,9 +1,11 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { JetBrains_Mono, Fraunces } from "next/font/google"
+import { JetBrains_Mono, Fraunces, Anton } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll"
+
 import "./globals.css"
+
+const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" })
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -74,7 +76,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#121210",
+  themeColor: "#fff5eb",
   width: "device-width",
   initialScale: 1,
 }
@@ -85,11 +87,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${jetbrainsMono.variable} ${anton.variable}`}>
       <body>
-        <SmoothScrollProvider>
+
           {children}
-        </SmoothScrollProvider>
+
         <Analytics />
       </body>
     </html>

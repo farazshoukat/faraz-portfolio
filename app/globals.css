@@ -82,6 +82,7 @@
   }
 
   html {
+    scroll-behavior: smooth;
     background-color: var(--ink);
     color: var(--paper);
     -webkit-font-smoothing: antialiased;
@@ -93,7 +94,7 @@
     font-family: "Switzer", system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    cursor: none; /* Hide default cursor — custom cursor takes over on desktop */
+    cursor: auto;
   }
 
   /* Restore default cursor on touch devices */
@@ -657,3 +658,5 @@
 body.nav-open {
   overflow: hidden;
 }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
