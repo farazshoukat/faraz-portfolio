@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowUpRight, Instagram } from "lucide-react"
+import { FlowcraftMark } from "@/components/flowcraft-mark"
 
 export function VentureSection() {
   return (
@@ -10,7 +11,7 @@ export function VentureSection() {
           <span className="micro">2026 — PRESENT / CO-FOUNDER</span>
           <h3>FLOWCRAFT<span>®</span></h3>
           <p>Web Development &<br />AI Automation Studio</p>
-          <div className="venture-emblem" aria-hidden="true"><div className="venture-orbit">{Array.from({ length: 6 }, (_, i) => <i key={i} style={{ transform: `rotate(${i * 60}deg) translateY(-92px)` }} />)}</div><span>F<span>↗</span></span></div>
+          <FlowcraftMark />
           <div className="venture-team micro"><strong>06</strong><span>PEOPLE.<br />ONE SHARED AMBITION.</span></div>
         </div>
         <div className="venture-story">

@@ -43,11 +43,13 @@ export const projects: Project[] = [
       "Full Urdu localization through i18next, with Supabase supporting the application."
     ],
     "outcome": "Won 3rd Place and 1st Place (People’s Choice) at the COMSATS Abbottabad FYP Competition, Spring 2026. The reported 91% accuracy applies specifically to tomato leaf disease.",
-    "repoUrl": "https://github.com/musadiq7860/FARMGUARDIAN",
+    "repoUrl": "https://github.com/farazshoukat/FARMGUARDIAN",
     "teamCredits": "Final Year Project · Built with a 3-person team under faculty supervision."
   },
   {
     "slug": "job-copilot",
+    "repoUrl": "https://github.com/farazshoukat/job-copilot",
+    "demoUrl": "https://job-copilot-cyan.vercel.app",
     "title": "Job Copilot",
     "tagline": "From resume PDF to tailored bullet points and a cover letter in under 60 seconds.",
     "category": "Full-Stack · Generative AI",
@@ -124,6 +126,7 @@ export const projects: Project[] = [
   },
   {
     "slug": "doc-poly-clinic",
+    "demoUrl": "https://maternal-fetal-risk-system.vercel.app",
     "title": "Maternal-Fetal Risk System",
     "tagline": "Clinical vitals and CTG data brought together in a two-tier AI risk assessment dashboard.",
     "category": "Full-Stack · Machine Learning",
@@ -150,6 +153,46 @@ export const projects: Project[] = [
     "outcome": "Delivered an integrated risk assessment platform with model comparison, interpretability, fairness audits, and an offline-backend fallback.",
     "repoUrl": "https://github.com/farazshoukat/maternal_fetal_risk_system",
     "teamCredits": "Built with a 2-person team."
+  },
+  {
+    slug: "ai-invoice-extractor",
+    title: "AI Invoice Extractor",
+    tagline: "Turn invoice PDFs and receipt images into structured records, ready for a dashboard or spreadsheet.",
+    category: "AI · Document Automation",
+    filters: ["Full-Stack", "AI & Automation"],
+    techStack: ["Python", "Flask", "Tesseract OCR", "Groq", "PostgreSQL", "Google Sheets", "Supabase"],
+    coverImage: "/images/projects/ai-invoice-extractor.svg",
+    repoUrl: "https://github.com/farazshoukat/ai-invoice-extractor",
+    problem: "Invoices and receipts contain useful financial data in formats that are awkward to search, organize, and transfer into a spreadsheet.",
+    whatIBuilt: ["A Flask application with sign-up, login, document upload, and a dashboard.", "An OCR-to-LLM pipeline: Tesseract reads PDF pages or images, then Groq structures vendor, date, total, currency, and line items into JSON.", "PostgreSQL persistence and Google Sheets integration, with separate upload and JSON extraction routes."],
+    outcome: "A source-available document-processing workflow connecting file intake, structured extraction, database storage, and spreadsheet logging."
+  },
+  {
+    slug: "rag-business-docs-chatbot",
+    title: "Business Docs RAG Chatbot",
+    tagline: "Upload a business document. Ask a question. Retrieve the context behind the answer.",
+    category: "AI · Retrieval-Augmented Generation",
+    filters: ["AI & Automation"],
+    techStack: ["Python", "Flask", "LangChain", "Groq", "Chroma", "Sentence Transformers"],
+    coverImage: "/images/projects/rag-business-docs-chatbot.svg",
+    repoUrl: "https://github.com/farazshoukat/rag-business-docs-chatbot",
+    problem: "Finding a specific answer in business documents can require repeated manual searching. This project connects document ingestion with retrieval-assisted question answering.",
+    whatIBuilt: ["Flask upload and chat endpoints with session-specific document ingestion.", "Chroma collections that retrieve relevant document chunks for each session.", "A LangChain pipeline with Groq inference, prompted to answer from retrieved context and acknowledge missing information."],
+    outcome: "A document question-answering API with session-scoped retrieval and cached chains for follow-up queries."
+  },
+  {
+    slug: "ai-pathfinder",
+    title: "AI Pathfinding Visualizer",
+    tagline: "Explore how search algorithms navigate a grid, one step at a time.",
+    category: "Interactive · Algorithms",
+    filters: ["Interactive"],
+    techStack: ["JavaScript", "HTML", "CSS", "A*", "Best-First Search", "BFS"],
+    coverImage: "/ai-pathfinding-algorithm-visualization-grid.jpg",
+    repoUrl: "https://github.com/farazshoukat/AI-pathfinder",
+    teamCredits: "Learning project adapted from jumailj’s Ai-PathFinding-Visualizer, credited in the repository README.",
+    problem: "Search algorithms are easier to understand when their exploration becomes visible. A grid provides a concrete way to observe routes and obstacles.",
+    whatIBuilt: ["A browser-based pathfinding project using JavaScript, HTML, and CSS.", "Grid visualization for A*, best-first search, and breadth-first search.", "Separate modules for algorithms, maze generation, grid properties, and visualization controls."],
+    outcome: "An interactive algorithm exploration project, with source code available for inspecting the search and visualization logic."
   }
 ]
 

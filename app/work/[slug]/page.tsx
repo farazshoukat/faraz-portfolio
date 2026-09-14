@@ -96,8 +96,10 @@ export default async function WorkCaseStudy({ params }: Props) {
         )}
 
         {/* Links row */}
+        {!project.repoUrl && <p className="section-label mb-6">Public repository not available.</p>}
         {(project.repoUrl || project.demoUrl || project.instagramReel) && (
           <div className="flex flex-wrap gap-3 mb-10">
+            {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="work-link-btn">↗ Open live app</a>}
             {project.repoUrl && (
               <a
                 href={project.repoUrl}
