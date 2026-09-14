@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {}
 
   return {
-    metadataBase: new URL("https://farazshoukat.dev"),
+    metadataBase: new URL("https://farazshoukat.vercel.app"),
     title: `${project.title} — Faraz Shoukat`,
     description: project.tagline,
     openGraph: {
@@ -147,7 +147,7 @@ export default async function WorkCaseStudy({ params }: Props) {
         >
           <Image
             src={project.coverImage}
-            alt={`${project.title} project screenshot`}
+            alt={`${project.title} project illustration`}
             fill
             className="object-cover"
             priority

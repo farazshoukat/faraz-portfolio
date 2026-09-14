@@ -22,17 +22,17 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://farazshoukat.dev"),
+  metadataBase: new URL("https://farazshoukat.vercel.app"),
   title: "Faraz Shoukat — Full-Stack & AI Engineer",
   description:
-    "Full-stack engineer building production web applications, AI agents, and automation pipelines. React/Next.js, FastAPI, LangGraph, RAG, and n8n — based in Pakistan, available for freelance.",
+    "Full-stack engineer building production web applications, AI agents, and automation pipelines. React/Next.js, FastAPI, machine learning, RAG, and n8n — based in Pakistan, available for freelance.",
   keywords: [
     "Faraz Shoukat",
     "Full Stack Developer",
     "AI Engineer",
     "Next.js",
     "FastAPI",
-    "LangGraph",
+    "Machine Learning",
     "RAG",
     "LLM",
     "n8n Automation",
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     "Pakistan",
     "Freelance",
   ],
-  authors: [{ name: "Faraz Shoukat", url: "https://farazshoukat.dev" }],
+  authors: [{ name: "Faraz Shoukat", url: "https://farazshoukat.vercel.app" }],
   creator: "Faraz Shoukat",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://farazshoukat.dev",
+    url: "https://farazshoukat.vercel.app",
     title: "Faraz Shoukat — Full-Stack & AI Engineer",
     description:
       "Full-stack engineer building production web apps, AI agents, and automation pipelines.",

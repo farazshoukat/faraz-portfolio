@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { projects } from "@/lib/data/projects"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://farazshoukat.dev"
+  const base = "https://farazshoukat.vercel.app"
 
   const workPages = projects.map((p) => ({
     url: `${base}/work/${p.slug}`,
